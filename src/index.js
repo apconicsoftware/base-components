@@ -12,6 +12,7 @@ import TextDataField from './data-fields/text-data-field';
 import TimeDataField from './data-fields/time-data-field';
 
 import SimpleRowActionTable from './tables/simple-row-action-table';
+import AdjustableSimpleRowActionTable from './tables/adjustable-simple-row-action-table';
 import SimpleTable from './/tables/simple-table';
 
 import ActionButton from './action-button';
@@ -48,6 +49,7 @@ export {
   TimeDataField,
 
   SimpleRowActionTable,
+  AdjustableSimpleRowActionTable
   SimpleTable,
 
   ActionButton,
