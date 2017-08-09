@@ -5,7 +5,7 @@ import { Table,
   TableHeaderColumn,
   TableRowColumn,
   TableBody } from 'material-ui/Table';
-import { ActionButton } from 'apconic-base-components';
+import ActionButton from '../action-button';
 import TableRowHeader from './table-row-header';
 import * as Colors from 'material-ui/styles/colors';
 import { split, filter } from 'lodash';
