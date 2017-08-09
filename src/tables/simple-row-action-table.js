@@ -107,10 +107,10 @@ export default class SimpleRowActionTable extends React.Component {
   }
 
   render() {
-    const { headers, height, fixedHeader, tableLayout } = this.props.data;
+    const { headers, height, fixedHeader = true, tableLayout } = this.props.data;
     const tableLayoutVal = tableLayout || 'fixed';
     const tableOptions = {
-      fixedHeader: (!fixedHeader) ? fixedHeader : true,
+      fixedHeader,
       fixedFooter: true,
       stripedRows: true,
       showRowHover: true,
