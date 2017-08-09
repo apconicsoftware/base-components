@@ -4,8 +4,9 @@ import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
+import { white } from 'material-ui/styles/colors';
 
-class ActionButton extends React.Component {
+class ActionButton extends React.Component {  
   getIconButton() {
     const { type, icon, ...other } = this.props; // eslint-disable-line no-unused-vars
     return (
@@ -110,6 +111,15 @@ class ActionButton extends React.Component {
     );
   }
 
+  getHeaderEditButton() {
+    const { type, ...other } = this.props; // eslint-disable-line no-unused-vars
+    return (
+      <FloatingActionButton mini {...other} tooltipPosition="left" >
+        <FontIcon className="material-icons" color={white}>edit</FontIcon>
+      </FloatingActionButton>
+    );
+  }
+
   renderButton() {
     const { type } = this.props;
     switch (type) {
@@ -135,6 +145,8 @@ class ActionButton extends React.Component {
         return this.getRfidReadButton();
       case 'FLOATING':
         return this.getFloatingButton();
+      case 'HEADEREDIT': 
+        return this.getHeaderEditButton();
       default:
         return this.getAddButton();
     }
