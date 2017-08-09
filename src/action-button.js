@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
+import { white } from 'material-ui/styles/colors';
 
 class ActionButton extends React.Component {  
   getIconButton() {
