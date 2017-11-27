@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { toUpper } from 'lodash';
 import TimeDataField from './time-data-field';
 import TextDataField from './text-data-field';
 import DateDataField from './date-data-field';
@@ -9,7 +11,7 @@ import PasswordDataField from './password-data-field';
 import FormulaDataField from './formula-data-field';
 import NumberDataField from './number-data-field';
 import ReadOnlyDataField from './read-only-text-field';
-import { toUpper } from 'lodash';
+import CodeMirrorDataField from './code-mirror-data-field';
 
 export default class DataField extends React.Component {
   getFieldType() {
@@ -66,6 +68,19 @@ export default class DataField extends React.Component {
       );
     }
     return <NumberDataField {...this.props} />;
+  }
+
+  createCodeValueComponent() {
+    if (this.props.schema) {
+      return (
+        <CodeValueField
+          value={this.props.value}
+          {...this.props.schema}
+          onChange={this.props.onChange}
+        />
+      );
+    }
+    return (<CodeValueField {...this.props} />);
   }
 
   createTimeComponent() {
@@ -171,6 +186,8 @@ export default class DataField extends React.Component {
         return this.createNumberDataField();
       case 'TEXT':
         return this.createTextComponent();
+      case 'CODE':
+        return this.createCodeMirrorComponent();
       default:
         return this.createReadOnlyDataField();
     }
@@ -186,20 +203,20 @@ export default class DataField extends React.Component {
 }
 
 DataField.propTypes = {
-  value: React.PropTypes.oneOfType(
+  value: PropTypes.oneOfType(
     [
-      React.PropTypes.string,
-      React.PropTypes.bool,
-      React.PropTypes.number,
-      React.PropTypes.object,
-      React.PropTypes.array,
-    ]
+      PropTypes.string,
+      PropTypes.bool,
+      PropTypes.number,
+      PropTypes.object,
+      PropTypes.array,
+    ],
   ),
-  docField: React.PropTypes.string,
-  displayName: React.PropTypes.string,
-  onChange: React.PropTypes.func,
-  menuItems: React.PropTypes.array,
-  disabled: React.PropTypes.bool,
-  type: React.PropTypes.string,
-  schema: React.PropTypes.object,
+  docField: PropTypes.string,
+  displayName: PropTypes.string,
+  onChange: PropTypes.func,
+  menuItems: PropTypes.array,
+  disabled: PropTypes.bool,
+  type: PropTypes.string,
+  schema: PropTypes.object,
 };
