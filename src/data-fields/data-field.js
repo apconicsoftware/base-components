@@ -70,17 +70,15 @@ export default class DataField extends React.Component {
     return <NumberDataField {...this.props} />;
   }
 
-  createCodeValueComponent() {
+  createCodeMirrorComponent() {
     if (this.props.schema) {
       return (
-        <CodeValueField
-          value={this.props.value}
+        <CodeMirrorDataField
           {...this.props.schema}
-          onChange={this.props.onChange}
         />
       );
     }
-    return (<CodeValueField {...this.props} />);
+    return <CodeMirrorDataField {...this.props} />;
   }
 
   createTimeComponent() {
