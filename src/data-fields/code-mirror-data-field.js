@@ -3,7 +3,7 @@ import { isNull, isUndefined } from 'lodash';
 import CodeMirror from 'react-codemirror';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/theme/monokai.css';
-import '../../../../../styles/code-mirror.css';
+import '../../styles/code-mirror.css';
 
 class CodeMirrorDataField extends React.Component {
   constructor(props) {
